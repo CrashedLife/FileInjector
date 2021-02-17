@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<!--
+  ~ Copyright © 2021 CrashedLife
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="937.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.crashedlife.fileinjector.core.ui.fx.controllers.FXMainController">
+  <tabs>
+    <Tab text="Injection">
+      <content>
+        <AnchorPane fx:id="injectionAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Injection String (If custom, you need to share it) | Uninjection String">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="122.0" text="File to inject">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="218.0" text="Inject in file | File to uninject">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXCheckBox fx:id="customJFXCheckBox" checkedColor="LIME" layoutX="470.0" layoutY="39.0" onAction="#customJFXCheckBoxValueChangeListener" prefHeight="41.0" prefWidth="120.0" text="Custom" textFill="#f26f6f" unCheckedColor="RED">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <TextField fx:id="injectionStringTextField" disable="true" layoutX="14.0" layoutY="37.0" prefHeight="45.0" prefWidth="424.0" text="Injected with FileInjector by CrashedLife">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="fileToInjectTextField" editable="false" layoutX="13.0" layoutY="146.0" prefHeight="49.0" prefWidth="426.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="injectInFileTextField" editable="false" layoutX="14.0" layoutY="246.0" prefHeight="48.0" prefWidth="424.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <JFXButton buttonType="RAISED" layoutX="466.0" layoutY="147.0" onAction="#browseFileToInject" prefHeight="48.0" prefWidth="185.0" ripplerFill="#a85252" text="Browse" textFill="#e83b3b">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="466.0" layoutY="246.0" onAction="#browseFileThatGetInjected" prefHeight="48.0" prefWidth="185.0" ripplerFill="#a85252" text="Browse" textFill="#e83b3b">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXCheckBox fx:id="requirementsMetJFXCheckBox" checkedColor="LIME" disable="true" layoutX="8.0" layoutY="343.0" prefHeight="41.0" prefWidth="221.0" text="Requirements met" textFill="#f26f6f" unCheckedColor="RED">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXButton fx:id="injectionJFXButton" buttonType="RAISED" disable="true" layoutX="12.0" layoutY="384.0" onAction="#startInjection" prefHeight="48.0" prefWidth="909.0" ripplerFill="#a85252" text="Start injection" textFill="#e83b3b">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="unInjectionJFXButton" buttonType="RAISED" disable="true" layoutX="12.0" layoutY="448.0" onAction="#startUnInjection" prefHeight="48.0" prefWidth="909.0" ripplerFill="#a85252" text="Start uninjection" textFill="#e83b3b">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXButton>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Encryption">
+      <content>
+        <AnchorPane fx:id="encryptionAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="encryptionAlgorithmLabel" layoutX="14.0" layoutY="30.0" text="Encryption Algorithm">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="124.0" text="Encryption Password (Press ENTER to lock password)">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXComboBox fx:id="encryptionAlgorithmJFXComboBox" focusColor="#4360b5" layoutX="13.0" layoutY="51.0" onAction="#encryptionAlgorithmJFXComboBoxValueChangeListener" prefHeight="48.0" prefWidth="912.0" unFocusColor="BLACK" />
+                  <TextField fx:id="encryptionPasswordTextField" layoutX="14.0" layoutY="145.0" onAction="#encryptionPasswordInputListener" prefHeight="48.0" prefWidth="915.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <JFXCheckBox fx:id="enableEncryptionJFXCheckBox" checkedColor="LIME" disable="true" layoutX="14.0" layoutY="201.0" onAction="#enableEncryptionJFXCheckBoxValueChangeListener" prefHeight="41.0" prefWidth="120.0" text="Enable file encryption" textFill="#f26f6f" unCheckedColor="RED">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXCheckBox>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab text="Decryption">
+         <content>
+            <AnchorPane fx:id="decryptionAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="decryptionAlgorithmLabel" layoutX="14.0" layoutY="30.0" text="Decryption Algorithm">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="214.0" text="Decryption Password (Press ENTER to lock password)">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="decryptionModeLabel" layoutX="13.0" layoutY="127.0" text="Decryption Mode">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXComboBox fx:id="decryptionAlgorithmJFXComboBox" focusColor="#4360b5" layoutX="13.0" layoutY="51.0" onAction="#decryptionAlgorithmJFXComboBoxValueChangeListener" prefHeight="48.0" prefWidth="912.0" unFocusColor="BLACK" />
+                  <TextField fx:id="decryptionPasswordTextField" layoutX="14.0" layoutY="235.0" onAction="#decryptionPasswordInputListener" prefHeight="48.0" prefWidth="915.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <JFXCheckBox fx:id="enableDecryptionJFXCheckBox" checkedColor="LIME" disable="true" layoutX="14.0" layoutY="283.0" onAction="#enableDecryptionJFXCheckBoxValueChangeListener" prefHeight="41.0" prefWidth="120.0" text="Enable file decryption" textFill="#f26f6f" unCheckedColor="RED">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXComboBox fx:id="decryptionModeJFXComboBox" focusColor="#4360b5" layoutX="13.0" layoutY="148.0" onAction="#decryptionModeJFXComboBoxValueChangeListener" prefHeight="48.0" prefWidth="912.0" unFocusColor="BLACK" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Settings">
+         <content>
+            <AnchorPane fx:id="settingsAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="themeLabel" layoutX="14.0" layoutY="14.0" text="Theme">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXComboBox fx:id="themeJFXComboBox" focusColor="#4360b5" layoutX="13.0" layoutY="35.0" onAction="#themeJFXComboBoxValueChangeListener" prefHeight="48.0" prefWidth="912.0" unFocusColor="BLACK" />
+                  <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="448.0" onAction="#openBackupFolder" prefHeight="48.0" prefWidth="909.0" ripplerFill="#a85252" text="Open backup folder" textFill="#e83b3b">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="About">
+         <content>
+            <AnchorPane fx:id="aboutAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Separator layoutX="-1.0" layoutY="57.0" prefHeight="3.0" prefWidth="945.0" />
+                  <Label alignment="CENTER" layoutX="3.0" layoutY="10.0" prefHeight="34.0" prefWidth="929.0" text="Copyright © 2021 CrashedLife">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="7.0" layoutY="75.0" prefHeight="34.0" prefWidth="929.0" text="This is a continuation of my old project &quot;JPGFileInjector&quot;.">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="4.0" layoutY="102.0" prefHeight="34.0" prefWidth="929.0" text="I would be very happy about suggestions for improvement!">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="448.0" onAction="#openGithubRepository" prefHeight="48.0" prefWidth="916.0" ripplerFill="#a85252" text="Github Repository" textFill="#e83b3b">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
